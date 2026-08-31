@@ -1,0 +1,73 @@
+<!--pages/profile/profile.wxml-->
+<view class="page-container">
+
+  <!-- ========== 用户信息头部 ========== -->
+  <view class="profile-header">
+    <!-- 未登录状态 -->
+    <block wx:if="{{!isLogin}}">
+      <view class="avatar-wrapper">
+        <view class="avatar-placeholder">
+          <text class="avatar-icon">👤</text>
+        </view>
+      </view>
+      <view class="mt-20 text-center">
+        <button class="btn-primary btn-lg" bindtap="onLogin">微信登录</button>
+      </view>
+      <view class="text-center text-light text-sm mt-10">登录后享受更多服务</view>
+    </block>
+
+    <!-- 已登录状态 -->
+    <block wx:else>
+      <view class="avatar-wrapper">
+        <image
+          class="user-avatar"
+          src="{{userInfo.avatarUrl}}"
+          mode="aspectFill"
+        ></image>
+      </view>
+      <view class="user-name text-center mt-20">{{userInfo.nickName || '用户'}}</view>
+    </block>
+  </view>
+
+  <!-- ========== 功能列表 ========== -->
+  <view class="card menu-card">
+    <!-- 我的预约 -->
+    <view class="menu-item" bindtap="navigateTo" data-url="/pages/my-bookings/my-bookings">
+      <view class="flex" style="align-items: center;">
+        <view class="menu-icon booking-icon">
+          <text class="icon-text">📋</text>
+        </view>
+        <text class="menu-text ml-20">我的预约</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+
+    <!-- 联系我们 -->
+    <view class="menu-item" bindtap="navigateTo" data-url="/pages/contact/contact">
+      <view class="flex" style="align-items: center;">
+        <view class="menu-icon contact-menu-icon">
+          <text class="icon-text">📞</text>
+        </view>
+        <text class="menu-text ml-20">联系我们</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+
+    <!-- 关于我们 -->
+    <view class="menu-item" bindtap="navigateTo" data-url="">
+      <view class="flex" style="align-items: center;">
+        <view class="menu-icon about-icon">
+          <text class="icon-text">ℹ️</text>
+        </view>
+        <text class="menu-text ml-20">关于我们</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- ========== 退出登录按钮 ========== -->
+  <view class="mt-40" wx:if="{{isLogin}}">
+    <button class="btn-outline btn-block" bindtap="onLogout">退出登录</button>
+  </view>
+
+</view>

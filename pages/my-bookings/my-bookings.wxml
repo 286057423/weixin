@@ -1,0 +1,78 @@
+<!--pages/my-bookings/my-bookings.wxml-->
+<view class="page-container">
+
+  <!-- ========== 状态筛选 Tab ========== -->
+  <scroll-view class="filter-scroll" scroll-x enable-flex>
+    <view class="filter-bar">
+      <view
+        wx:for="{{statusTabs}}"
+        wx:key="key"
+        class="filter-item {{filterStatus === item.key ? 'active' : ''}}"
+        bindtap="onFilterChange"
+        data-status="{{item.key}}"
+      >
+        {{item.label}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- ========== 加载中 ========== -->
+  <view class="loading-wrapper" wx:if="{{loading}}">
+    <text class="text-light">加载中...</text>
+  </view>
+
+  <!-- ========== 预约记录列表 ========== -->
+  <block wx:elif="{{bookingList.length > 0}}">
+    <view
+      class="card booking-card"
+      wx:for="{{bookingList}}"
+      wx:key="_id"
+    >
+      <!-- 卡片头部：日期 + 状态标签 -->
+      <view class="flex-between mb-10">
+        <view class="booking-date">
+          <text class="date-text">{{item.bookingDate}}</text>
+          <text class="time-text text-secondary text-sm ml-10">{{item.timeSlot}}</text>
+        </view>
+        <view
+          class="tag {{item.status === 'pending' ? 'tag-warning' : item.status === 'contacted' ? 'tag-primary' : item.status === 'completed' ? 'tag-success' : 'tag-danger'}}"
+        >
+          {{item.status === 'pending' ? '待处理' : item.status === 'contacted' ? '已联系' : item.status === 'completed' ? '已完成' : '已取消'}}
+        </view>
+      </view>
+
+      <!-- 地址信息 -->
+      <view class="booking-info-item">
+        <text class="info-label">地址：</text>
+        <text class="info-value">{{item.address}}</text>
+      </view>
+
+      <!-- 问题描述摘要 -->
+      <view class="booking-info-item">
+        <text class="info-label">问题：</text>
+        <text class="info-value booking-desc">{{item.description}}</text>
+      </view>
+
+      <!-- 底部操作区（仅待处理状态显示取消按钮） -->
+      <view class="booking-actions mt-20" wx:if="{{item.status === 'pending'}}">
+        <button
+          class="btn-outline cancel-btn"
+          bindtap="onCancelBooking"
+          data-id="{{item._id}}"
+        >
+          取消预约
+        </button>
+      </view>
+    </view>
+  </block>
+
+  <!-- ========== 空状态提示 ========== -->
+  <view class="empty-state" wx:else>
+    <view class="empty-icon-placeholder">
+      <text class="empty-icon-text">📋</text>
+    </view>
+    <view class="empty-text mt-20">暂无预约记录</view>
+    <view class="text-light text-sm mt-10">您还没有提交过任何预约</view>
+  </view>
+
+</view>

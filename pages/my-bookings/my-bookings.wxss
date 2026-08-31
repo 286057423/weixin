@@ -1,0 +1,99 @@
+/* pages/my-bookings/my-bookings.wxss */
+
+/* ==================== 状态筛选 Tab ==================== */
+.filter-scroll {
+  white-space: nowrap;
+  margin: -20rpx -30rpx 0;
+  padding: 0 30rpx;
+}
+
+.filter-scroll .filter-bar {
+  padding: 20rpx 0;
+}
+
+/* ==================== 预约卡片 ==================== */
+.booking-card {
+  padding: 30rpx;
+}
+
+.booking-date {
+  display: flex;
+  align-items: baseline;
+}
+
+.date-text {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: var(--color-text);
+}
+
+.time-text {
+  font-size: 24rpx;
+}
+
+/* ==================== 预约信息行 ==================== */
+.booking-info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 12rpx;
+  line-height: 1.5;
+}
+
+.info-label {
+  font-size: 26rpx;
+  color: var(--color-text-light);
+  flex-shrink: 0;
+  width: 80rpx;
+}
+
+.info-value {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  flex: 1;
+}
+
+.booking-desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==================== 底部操作区 ==================== */
+.booking-actions {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1rpx solid var(--color-divider);
+  padding-top: 20rpx;
+}
+
+.cancel-btn {
+  padding: 8rpx 30rpx;
+  font-size: 24rpx;
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+  border-radius: 32rpx;
+  line-height: 1.8;
+  min-width: auto;
+}
+
+.cancel-btn::after {
+  border: none;
+}
+
+/* ==================== 空状态占位图 ==================== */
+.empty-icon-placeholder {
+  width: 160rpx;
+  height: 160rpx;
+  background: #f5f5f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-icon-text {
+  font-size: 72rpx;
+  opacity: 0.5;
+}

@@ -1,62 +1,69 @@
-/**index.wxss**/
-page {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-.scrollarea {
-  flex: 1;
-  overflow-y: hidden;
+/* index.wxss - 首页专属样式 */
+
+/* ==================== 轮播图 ==================== */
+.banner-swiper {
+  width: 100%;
+  height: 360rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
 }
 
-.userinfo {
+.banner-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16rpx;
+}
+
+.banner-text {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.2);
+}
+
+/* ==================== 服务网格 ==================== */
+.service-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+
+.service-item {
+  width: 33.33%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #aaa;
-  width: 80%;
+  margin-bottom: 30rpx;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
-
-.avatar-wrapper {
-  padding: 0;
-  width: 56px !important;
-  border-radius: 8px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.avatar {
-  display: block;
-  width: 56px;
-  height: 56px;
-}
-
-.nickname-wrapper {
+.service-icon {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 24rpx;
+  background: rgba(26, 95, 168, 0.08);
   display: flex;
-  width: 100%;
-  padding: 16px;
-  box-sizing: border-box;
-  border-top: .5px solid rgba(0, 0, 0, 0.1);
-  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
-  color: black;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12rpx;
 }
 
-.nickname-label {
-  width: 105px;
+.service-emoji {
+  font-size: 48rpx;
 }
 
-.nickname-input {
-  flex: 1;
+.service-name {
+  font-size: 24rpx;
+  color: var(--color-text);
+  text-align: center;
+}
+
+/* ==================== 案例入口按钮 ==================== */
+.cases-entry-btn {
+  flex-shrink: 0;
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  padding: 12rpx 24rpx;
 }

@@ -1,0 +1,55 @@
+<!--cases.wxml - 案例列表页-->
+<view class="page-container">
+
+  <!-- 顶部筛选栏 -->
+  <scroll-view class="filter-bar" scroll-x>
+    <view class="filter-item {{filterType === 'all' ? 'active' : ''}}" bindtap="onFilterChange" data-type="all">全部</view>
+    <view class="filter-item {{filterType === 'hollow' ? 'active' : ''}}" bindtap="onFilterChange" data-type="hollow">空鼓</view>
+    <view class="filter-item {{filterType === 'crack' ? 'active' : ''}}" bindtap="onFilterChange" data-type="crack">裂缝</view>
+    <view class="filter-item {{filterType === 'scratch' ? 'active' : ''}}" bindtap="onFilterChange" data-type="scratch">划痕</view>
+    <view class="filter-item {{filterType === 'falloff' ? 'active' : ''}}" bindtap="onFilterChange" data-type="falloff">脱落</view>
+    <view class="filter-item {{filterType === 'grout' ? 'active' : ''}}" bindtap="onFilterChange" data-type="grout">美缝</view>
+  </scroll-view>
+
+  <!-- 加载中状态 -->
+  <view wx:if="{{loading}}" class="loading-wrapper">
+    <text class="text-light">加载中...</text>
+  </view>
+
+  <!-- 案例卡片列表 -->
+  <block wx:elif="{{caseList.length > 0}}">
+    <navigator
+      wx:for="{{caseList}}"
+      wx:key="id"
+      url="/pages/case-detail/case-detail?id={{item.id}}"
+      class="case-card card"
+    >
+      <!-- 封面图占位区域 -->
+      <view class="case-cover">
+        <text class="case-cover-text">{{item.title}}</text>
+      </view>
+      <!-- 标题 -->
+      <view class="case-title">{{item.title}}</view>
+      <!-- 修复类型标签 -->
+      <view class="mt-10">
+        <text class="tag tag-primary">{{item.typeName}}</text>
+      </view>
+      <!-- 简介文字 -->
+      <view class="case-desc card-desc">{{item.desc}}</view>
+    </navigator>
+  </block>
+
+  <!-- 空状态 -->
+  <view wx:elif="{{!loading}}" class="empty-state">
+    <view class="empty-icon-placeholder">
+      <text class="empty-icon-text">📷</text>
+    </view>
+    <text class="empty-text">暂无案例</text>
+  </view>
+
+  <!-- 加载更多提示 -->
+  <view wx:if="{{caseList.length > 0 && !hasMore}}" class="loading-wrapper">
+    <text class="text-light text-sm">— 没有更多了 —</text>
+  </view>
+
+</view>

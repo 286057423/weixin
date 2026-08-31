@@ -1,0 +1,55 @@
+<!--pages/admin/bookings/bookings.wxml - 预约管理-->
+<view class="page-container">
+
+  <!-- 状态筛选栏 -->
+  <view class="filter-bar">
+    <view class="filter-item {{filterStatus === 'all' ? 'active' : ''}}" bindtap="onFilterChange" data-status="all">全部</view>
+    <view class="filter-item {{filterStatus === 'pending' ? 'active' : ''}}" bindtap="onFilterChange" data-status="pending">待处理</view>
+    <view class="filter-item {{filterStatus === 'contacted' ? 'active' : ''}}" bindtap="onFilterChange" data-status="contacted">已联系</view>
+    <view class="filter-item {{filterStatus === 'completed' ? 'active' : ''}}" bindtap="onFilterChange" data-status="completed">已完成</view>
+    <view class="filter-item {{filterStatus === 'cancelled' ? 'active' : ''}}" bindtap="onFilterChange" data-status="cancelled">已取消</view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading-wrapper" wx:if="{{loading}}">
+    <text class="text-light">加载中...</text>
+  </view>
+
+  <!-- 预约记录列表 -->
+  <view class="booking-list" wx:if="{{!loading && bookingList.length > 0}}">
+    <view class="card booking-card" wx:for="{{bookingList}}" wx:key="id">
+      <view class="flex-between mb-10">
+        <view class="booking-name text-bold">{{item.name || '客户姓名'}}</view>
+        <view class="tag {{item.statusClass || 'tag-warning'}}" bindtap="onChangeStatus" data-id="{{item.id}}" data-status="{{item.status}}">
+          {{item.statusText || '待处理'}}
+        </view>
+      </view>
+      <view class="booking-detail-row">
+        <view class="booking-detail-item">
+          <text class="detail-label text-light">电话：</text>
+          <text class="detail-value">{{item.phone || '138****0000'}}</text>
+        </view>
+        <view class="booking-detail-item">
+          <text class="detail-label text-light">地址：</text>
+          <text class="detail-value">{{item.address || '暂无地址'}}</text>
+        </view>
+        <view class="booking-detail-item">
+          <text class="detail-label text-light">预约：</text>
+          <text class="detail-value">{{item.bookingDate || '2026-01-01'}}</text>
+        </view>
+      </view>
+      <view class="booking-actions mt-10">
+        <view class="action-link text-primary text-sm" bindtap="onViewDetail" data-id="{{item.id}}">查看详情 ></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{!loading && bookingList.length === 0}}">
+    <view class="empty-icon-placeholder flex-center mb-20">
+      <text class="text-light">暂无</text>
+    </view>
+    <view class="empty-text text-light">暂无预约记录</view>
+  </view>
+
+</view>

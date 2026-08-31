@@ -1,0 +1,69 @@
+<!-- pages/admin/stats/stats.wxml -->
+<!-- 数据统计页 -->
+<view class="page-container">
+  <!-- 时间范围选择 -->
+  <view class="time-range-bar">
+    <text class="range-item {{timeRange === 'day' ? 'active' : ''}}" bindtap="onTimeRangeChange" data-range="day">按日</text>
+    <text class="range-item {{timeRange === 'week' ? 'active' : ''}}" bindtap="onTimeRangeChange" data-range="week">按周</text>
+    <text class="range-item {{timeRange === 'month' ? 'active' : ''}}" bindtap="onTimeRangeChange" data-range="month">按月</text>
+  </view>
+
+  <!-- 数据概览卡片 -->
+  <view class="stats-cards">
+    <view class="stats-card card">
+      <text class="stats-number">{{totalVisits}}</text>
+      <text class="stats-label">总访问量</text>
+    </view>
+    <view class="stats-card card">
+      <text class="stats-number">{{totalBookings}}</text>
+      <text class="stats-label">总预约数</text>
+    </view>
+    <view class="stats-card card">
+      <text class="stats-number">{{totalCaseViews}}</text>
+      <text class="stats-label">案例浏览量</text>
+    </view>
+  </view>
+
+  <!-- 预约趋势图表占位 -->
+  <view class="card mt-30">
+    <text class="card-title">预约趋势</text>
+    <view class="chart-placeholder">
+      <text>图表区域 - {{timeRange === 'day' ? '按日' : timeRange === 'week' ? '按周' : '按月'}}统计</text>
+    </view>
+  </view>
+
+  <!-- 修复类型占比占位 -->
+  <view class="card mt-30">
+    <text class="card-title">修复类型占比</text>
+    <view class="chart-placeholder pie-placeholder">
+      <text>类型占比图（饼图区域）</text>
+    </view>
+    <view class="legend-list">
+      <view class="legend-item">
+        <view class="legend-dot" style="background:#1a5fa8;"></view>
+        <text>空鼓修复</text>
+        <text class="text-secondary">0%</text>
+      </view>
+      <view class="legend-item">
+        <view class="legend-dot" style="background:#ff6b35;"></view>
+        <text>裂缝修复</text>
+        <text class="text-secondary">0%</text>
+      </view>
+      <view class="legend-item">
+        <view class="legend-dot" style="background:#52c41a;"></view>
+        <text>划痕修复</text>
+        <text class="text-secondary">0%</text>
+      </view>
+      <view class="legend-item">
+        <view class="legend-dot" style="background:#faad14;"></view>
+        <text>脱落修复</text>
+        <text class="text-secondary">0%</text>
+      </view>
+      <view class="legend-item">
+        <view class="legend-dot" style="background:#999;"></view>
+        <text>美缝服务</text>
+        <text class="text-secondary">0%</text>
+      </view>
+    </view>
+  </view>
+</view>

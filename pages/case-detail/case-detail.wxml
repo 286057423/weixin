@@ -1,0 +1,56 @@
+<!-- pages/case-detail/case-detail.wxml -->
+<!-- 案例详情页 -->
+<view class="page-container">
+  <!-- 加载中 -->
+  <view wx:if="{{loading}}" class="loading-wrapper">
+    <text class="text-secondary">加载中...</text>
+  </view>
+
+  <!-- 案例内容 -->
+  <view wx:else>
+    <!-- 图片轮播 -->
+    <swiper class="case-swiper" indicator-dots autoplay circular>
+      <swiper-item wx:for="{{caseDetail.images}}" wx:key="index">
+        <view class="swiper-img-placeholder">
+          <text>图片 {{index + 1}}</text>
+        </view>
+      </swiper-item>
+    </swiper>
+
+    <!-- 视频区域（如有） -->
+    <view wx:if="{{caseDetail.video}}" class="video-section card">
+      <view class="video-placeholder">
+        <text>视频播放区域</text>
+      </view>
+    </view>
+
+    <!-- 标题和类型 -->
+    <view class="card">
+      <text class="card-title">{{caseDetail.title}}</text>
+      <view class="mt-10">
+        <text class="tag tag-primary">{{caseDetail.typeName}}</text>
+      </view>
+      <view class="divider"></view>
+      <text class="card-desc">{{caseDetail.description}}</text>
+    </view>
+
+    <!-- 修复前后对比 -->
+    <view class="card">
+      <text class="card-title">修复效果对比</text>
+      <view class="compare-wrapper">
+        <view class="compare-item">
+          <view class="compare-img before-placeholder">
+            <text>修复前</text>
+          </view>
+          <text class="text-center text-sm mt-10">修复前</text>
+        </view>
+        <view class="compare-item">
+          <view class="compare-img after-placeholder">
+            <text>修复后</text>
+          </view>
+          <text class="text-center text-sm mt-10">修复后</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

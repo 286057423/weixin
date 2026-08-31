@@ -1,0 +1,75 @@
+/* pages/admin/cases/cases.wxss - 案例管理样式 */
+
+/* 新增案例按钮 */
+.btn-add-case {
+  padding: 12rpx 28rpx;
+  font-size: 26rpx;
+  border-radius: 8rpx;
+}
+
+/* 案例卡片 */
+.case-item {
+  padding: 24rpx;
+}
+
+.case-cover-placeholder {
+  width: 180rpx;
+  height: 130rpx;
+  border-radius: 10rpx;
+  background: var(--color-bg);
+  border: 2rpx dashed var(--color-border);
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.case-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.case-title {
+  font-size: 30rpx;
+  color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.case-meta {
+  display: flex;
+  align-items: center;
+}
+
+/* 操作按钮 */
+.case-actions {
+  display: flex;
+  align-items: center;
+}
+
+.action-btn {
+  font-size: 24rpx;
+  padding: 6rpx 20rpx;
+  border-radius: 6rpx;
+  margin-right: 16rpx;
+}
+
+.action-edit {
+  color: var(--color-primary);
+  background: rgba(26, 95, 168, 0.08);
+}
+
+.action-delete {
+  color: var(--color-danger);
+  background: rgba(255, 77, 79, 0.08);
+}
+
+/* 空状态占位图 */
+.empty-icon-placeholder {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 2rpx dashed var(--color-border);
+}

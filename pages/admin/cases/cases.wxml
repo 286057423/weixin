@@ -1,0 +1,49 @@
+<!--pages/admin/cases/cases.wxml - 案例管理-->
+<view class="page-container">
+
+  <!-- 顶部操作栏 -->
+  <view class="flex-between mb-20">
+    <view class="text-lg text-bold">案例列表</view>
+    <view class="btn-add-case btn-primary" bindtap="onAddCase">
+      + 新增案例
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading-wrapper" wx:if="{{loading}}">
+    <text class="text-light">加载中...</text>
+  </view>
+
+  <!-- 案例列表 -->
+  <view class="case-list" wx:if="{{!loading && caseList.length > 0}}">
+    <view class="card case-item" wx:for="{{caseList}}" wx:key="id">
+      <view class="flex">
+        <!-- 封面图占位 -->
+        <view class="case-cover-placeholder flex-center">
+          <text class="text-light text-sm">封面</text>
+        </view>
+        <!-- 案例信息 -->
+        <view class="case-info flex-1">
+          <view class="case-title text-bold">{{item.title || '案例标题'}}</view>
+          <view class="case-meta mt-10">
+            <view class="tag tag-primary">{{item.type || '修复类型'}}</view>
+            <text class="text-light text-sm ml-10">{{item.createTime || '2026-01-01'}}</text>
+          </view>
+          <view class="case-actions mt-10">
+            <view class="action-btn action-edit" bindtap="onEditCase" data-id="{{item.id}}">编辑</view>
+            <view class="action-btn action-delete" bindtap="onDeleteCase" data-id="{{item.id}}">删除</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{!loading && caseList.length === 0}}">
+    <view class="empty-icon-placeholder flex-center mb-20">
+      <text class="text-light">暂无</text>
+    </view>
+    <view class="empty-text text-light">还没有案例，点击上方按钮添加</view>
+  </view>
+
+</view>

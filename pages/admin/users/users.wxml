@@ -1,0 +1,35 @@
+<!-- pages/admin/users/users.wxml -->
+<!-- 用户管理页 -->
+<view class="page-container">
+  <!-- 加载中 -->
+  <view wx:if="{{loading}}" class="loading-wrapper">
+    <text class="text-secondary">加载中...</text>
+  </view>
+
+  <!-- 用户列表 -->
+  <view wx:elif="{{userList.length > 0}}">
+    <view class="user-card card" wx:for="{{userList}}" wx:key="_id" bindtap="onViewUserDetail" data-id="{{item._id}}">
+      <view class="user-info">
+        <view class="user-avatar-placeholder">
+          <text>{{item.nickName[0] || '?'}}</text>
+        </view>
+        <view class="user-detail">
+          <text class="user-name">{{item.nickName}}</text>
+          <text class="text-sm text-secondary">注册时间：{{item.registerTime || '未知'}}</text>
+        </view>
+      </view>
+      <view class="user-stats">
+        <text class="text-sm text-secondary">预约次数：</text>
+        <text class="text-primary text-bold">{{item.bookingCount || 0}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:else class="empty-state">
+    <view class="empty-icon-placeholder">
+      <text>暂无用户</text>
+    </view>
+    <text class="empty-text">还没有用户注册</text>
+  </view>
+</view>

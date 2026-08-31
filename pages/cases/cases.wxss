@@ -1,0 +1,63 @@
+/* cases.wxss - 案例列表页专属样式 */
+
+/* ==================== 筛选栏 ==================== */
+.filter-bar {
+  white-space: nowrap;
+  margin: 0 -30rpx;
+  padding: 0 30rpx;
+}
+
+/* ==================== 案例卡片 ==================== */
+.case-card {
+  display: block;
+  overflow: hidden;
+}
+
+.case-cover {
+  width: 100%;
+  height: 360rpx;
+  background-color: #d9d9d9;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.case-cover-text {
+  font-size: 30rpx;
+  color: #999999;
+}
+
+.case-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--color-text);
+  margin-bottom: 8rpx;
+}
+
+.case-desc {
+  margin-top: 12rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==================== 空状态图标占位 ==================== */
+.empty-icon-placeholder {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background: var(--color-divider);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30rpx;
+}
+
+.empty-icon-text {
+  font-size: 80rpx;
+  opacity: 0.5;
+}

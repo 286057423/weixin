@@ -1,0 +1,75 @@
+<!-- pages/booking/booking.wxml -->
+<!-- 预约登记页 -->
+<view class="page-container">
+  <!-- 表单区域 -->
+  <view wx:if="{{!submitted}}" class="booking-form">
+    <view class="card">
+      <view class="card-title">填写预约信息</view>
+
+      <!-- 姓名 -->
+      <view class="form-group">
+        <text class="form-label"><text class="required">*</text>姓名</text>
+        <input class="form-input" placeholder="请输入您的姓名" value="{{form.name}}" bindinput="onInputChange" data-field="name" />
+      </view>
+
+      <!-- 电话 -->
+      <view class="form-group">
+        <text class="form-label"><text class="required">*</text>联系电话</text>
+        <input class="form-input" type="number" maxlength="11" placeholder="请输入手机号码" value="{{form.phone}}" bindinput="onInputChange" data-field="phone" />
+      </view>
+
+      <!-- 地址 -->
+      <view class="form-group">
+        <text class="form-label"><text class="required">*</text>服务地址</text>
+        <input class="form-input" placeholder="请输入详细地址" value="{{form.address}}" bindinput="onInputChange" data-field="address" />
+      </view>
+
+      <!-- 上门日期 -->
+      <view class="form-group">
+        <text class="form-label"><text class="required">*</text>上门日期</text>
+        <picker mode="date" start="{{today}}" bindchange="onDateChange">
+          <view class="form-input picker-display">
+            <text wx:if="{{form.date}}">{{form.date}}</text>
+            <text wx:else class="text-light">请选择日期</text>
+          </view>
+        </picker>
+      </view>
+
+      <!-- 上门时段 -->
+      <view class="form-group">
+        <text class="form-label"><text class="required">*</text>上门时段</text>
+        <radio-group bindchange="onPeriodChange">
+          <view class="radio-wrapper">
+            <label class="radio-item {{form.period === '上午' ? 'active' : ''}}">
+              <radio value="上午" checked="{{form.period === '上午'}}" color="#1a5fa8" />
+              <text>上午 (9:00-12:00)</text>
+            </label>
+            <label class="radio-item {{form.period === '下午' ? 'active' : ''}}">
+              <radio value="下午" checked="{{form.period === '下午'}}" color="#1a5fa8" />
+              <text>下午 (14:00-18:00)</text>
+            </label>
+          </view>
+        </radio-group>
+      </view>
+
+      <!-- 问题描述 -->
+      <view class="form-group">
+        <text class="form-label">问题描述（选填）</text>
+        <textarea class="form-textarea" placeholder="请描述瓷砖问题情况，如位置、面积等" value="{{form.description}}" bindinput="onInputChange" data-field="description" maxlength="500" />
+      </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <button class="btn-accent btn-block btn-lg mt-30" bindtap="onSubmit" disabled="{{submitting}}">
+      {{submitting ? '提交中...' : '提交预约'}}
+    </button>
+  </view>
+
+  <!-- 提交成功提示 -->
+  <view wx:else class="success-wrapper">
+    <view class="success-icon">✓</view>
+    <text class="success-title">预约提交成功！</text>
+    <text class="success-desc">我们会尽快与您联系确认上门服务时间</text>
+    <button class="btn-primary btn-block mt-40" bindtap="onBackHome">返回首页</button>
+  </view>
+</view>

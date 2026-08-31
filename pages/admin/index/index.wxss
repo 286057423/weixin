@@ -1,0 +1,91 @@
+/* pages/admin/index/index.wxss - 后台管理首页样式 */
+
+/* 管理员头部 */
+.admin-header {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: #ffffff;
+}
+
+.admin-greeting {
+  color: #ffffff;
+}
+
+.admin-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.admin-avatar-placeholder {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 新预约提醒 */
+.booking-alert-card {
+  border-left: 6rpx solid var(--color-accent);
+}
+
+.alert-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: var(--color-accent);
+  margin-right: 16rpx;
+}
+
+.alert-text {
+  font-size: 28rpx;
+  color: var(--color-text);
+}
+
+/* 快捷功能网格 */
+.quick-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 16rpx;
+}
+
+.quick-grid-item {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.quick-icon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 20rpx;
+  margin-bottom: 12rpx;
+}
+
+.quick-label {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+}
+
+/* 今日概览 */
+.overview-row {
+  padding-top: 16rpx;
+}
+
+.overview-item {
+  border-right: 1rpx solid var(--color-divider);
+}
+
+.overview-item:last-child {
+  border-right: none;
+}
+
+.overview-num {
+  font-size: 48rpx;
+  color: var(--color-primary);
+  margin-bottom: 8rpx;
+}
+
+.overview-label {
+  font-size: 24rpx;
+  color: var(--color-text-light);
+}

@@ -1,0 +1,86 @@
+<!--pages/admin/index/index.wxml - 后台管理首页-->
+<view class="page-container">
+
+  <!-- 管理员欢迎信息 -->
+  <view class="admin-header card">
+    <view class="flex-between">
+      <view>
+        <view class="admin-greeting text-lg text-bold">管理员，您好</view>
+        <view class="admin-subtitle text-secondary text-sm mt-10">欢迎使用瓷砖修复服务管理后台</view>
+      </view>
+      <view class="admin-avatar-placeholder flex-center">
+        <text class="text-sm" style="color:#fff;">A</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 新预约提醒卡片 -->
+  <view class="card booking-alert-card" wx:if="{{newBookingCount > 0}}">
+    <view class="flex-between">
+      <view class="flex" style="align-items:center;">
+        <view class="alert-dot"></view>
+        <text class="alert-text">您有 {{newBookingCount}} 条新预约待处理</text>
+      </view>
+      <view class="text-primary text-sm" bindtap="navigateTo" data-url="/pages/admin/bookings/bookings">
+        去处理 >
+      </view>
+    </view>
+  </view>
+
+  <!-- 快捷功能入口网格 -->
+  <view class="card">
+    <view class="card-title">快捷功能</view>
+    <view class="quick-grid">
+      <view class="quick-grid-item" bindtap="navigateTo" data-url="/pages/admin/cases/cases">
+        <view class="quick-icon flex-center" style="background:rgba(26,95,168,0.1);">
+          <text style="font-size:40rpx;color:var(--color-primary);">&#x1F4CB;</text>
+        </view>
+        <text class="quick-label text-sm">案例管理</text>
+      </view>
+      <view class="quick-grid-item" bindtap="navigateTo" data-url="/pages/admin/bookings/bookings">
+        <view class="quick-icon flex-center" style="background:rgba(255,107,53,0.1);">
+          <text style="font-size:40rpx;color:var(--color-accent);">&#x1F4C5;</text>
+        </view>
+        <text class="quick-label text-sm">预约管理</text>
+      </view>
+      <view class="quick-grid-item" bindtap="navigateTo" data-url="/pages/admin/stats/stats">
+        <view class="quick-icon flex-center" style="background:rgba(82,196,26,0.1);">
+          <text style="font-size:40rpx;color:var(--color-success);">&#x1F4CA;</text>
+        </view>
+        <text class="quick-label text-sm">数据统计</text>
+      </view>
+      <view class="quick-grid-item" bindtap="navigateTo" data-url="/pages/admin/users/users">
+        <view class="quick-icon flex-center" style="background:rgba(250,173,20,0.1);">
+          <text style="font-size:40rpx;color:var(--color-warning);">&#x1F465;</text>
+        </view>
+        <text class="quick-label text-sm">用户管理</text>
+      </view>
+      <view class="quick-grid-item" bindtap="navigateTo" data-url="/pages/admin/settings/settings">
+        <view class="quick-icon flex-center" style="background:rgba(26,95,168,0.1);">
+          <text style="font-size:40rpx;color:var(--color-primary);">&#x2699;</text>
+        </view>
+        <text class="quick-label text-sm">基础设置</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 数据概览 -->
+  <view class="card">
+    <view class="card-title">今日概览</view>
+    <view class="overview-row flex">
+      <view class="overview-item flex-1 text-center">
+        <view class="overview-num text-bold">0</view>
+        <view class="overview-label text-sm text-light">今日预约</view>
+      </view>
+      <view class="overview-item flex-1 text-center">
+        <view class="overview-num text-bold">0</view>
+        <view class="overview-label text-sm text-light">新增用户</view>
+      </view>
+      <view class="overview-item flex-1 text-center">
+        <view class="overview-num text-bold">0</view>
+        <view class="overview-label text-sm text-light">今日访问</view>
+      </view>
+    </view>
+  </view>
+
+</view>

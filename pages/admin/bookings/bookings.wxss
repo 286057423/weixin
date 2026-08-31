@@ -1,0 +1,99 @@
+/* pages/admin/bookings/bookings.wxss - 预约管理样式 */
+
+/* 预约卡片 */
+.booking-card {
+  padding: 28rpx;
+}
+
+.booking-name {
+  font-size: 30rpx;
+  color: var(--color-text);
+}
+
+/* 预约详情行 */
+.booking-detail-row {
+  padding: 8rpx 0;
+}
+
+.booking-detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.detail-label {
+  font-size: 26rpx;
+  width: 80rpx;
+  flex-shrink: 0;
+}
+
+.detail-value {
+  font-size: 26rpx;
+  color: var(--color-text);
+}
+
+/* 操作链接 */
+.booking-actions {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1rpx solid var(--color-divider);
+  padding-top: 16rpx;
+}
+
+.action-link {
+  padding: 8rpx 0;
+}
+
+/* 空状态占位图 */
+.empty-icon-placeholder {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 2rpx dashed var(--color-border);
+}
+
+/* 状态选择弹窗（预留） */
+.status-picker-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.status-picker {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 30rpx;
+  z-index: 1000;
+}
+
+.status-picker-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.status-picker-item {
+  padding: 28rpx 0;
+  font-size: 30rpx;
+  text-align: center;
+  border-bottom: 1rpx solid var(--color-divider);
+}
+
+.status-picker-item:last-child {
+  border-bottom: none;
+}
+
+.status-picker-item.active {
+  color: var(--color-primary);
+  font-weight: bold;
+}

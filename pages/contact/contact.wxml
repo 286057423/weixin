@@ -1,0 +1,61 @@
+<!--pages/contact/contact.wxml-->
+<view class="page-container">
+
+  <!-- 微信二维码区域 -->
+  <view class="card qrcode-card">
+    <view class="card-title text-center">添加工作微信</view>
+    <view class="qrcode-wrapper" bindtap="onPreviewQrcode">
+      <!-- 占位图：用 view + 背景色代替二维码图片 -->
+      <view class="qrcode-placeholder">
+        <view class="qrcode-icon">&#xe600;</view>
+        <text class="qrcode-placeholder-text">微信二维码</text>
+      </view>
+    </view>
+    <view class="text-center text-secondary text-sm mt-10">长按识别添加工作微信</view>
+  </view>
+
+  <!-- 电话号码卡片 -->
+  <view class="card phone-card">
+    <view class="flex-between">
+      <view class="flex" style="align-items: center;">
+        <view class="contact-icon phone-icon">
+          <text class="icon-text">☎</text>
+        </view>
+        <view class="ml-20">
+          <view class="text-secondary text-sm">服务热线</view>
+          <view class="phone-number">{{phone}}</view>
+        </view>
+      </view>
+      <button class="btn-primary phone-btn" bindtap="makePhoneCall">拨打电话</button>
+    </view>
+  </view>
+
+  <!-- 工作时间信息卡片 -->
+  <view class="card info-card">
+    <view class="flex" style="align-items: flex-start;">
+      <view class="contact-icon time-icon">
+        <text class="icon-text">⏰</text>
+      </view>
+      <view class="ml-20 flex-1">
+        <view class="card-title">工作时间</view>
+        <view class="card-desc">{{workTime}}</view>
+        <view class="text-light text-sm mt-10">节假日可能调整，请提前联系确认</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 服务区域信息卡片 -->
+  <view class="card info-card">
+    <view class="flex" style="align-items: flex-start;">
+      <view class="contact-icon area-icon">
+        <text class="icon-text">📍</text>
+      </view>
+      <view class="ml-20 flex-1">
+        <view class="card-title">服务区域</view>
+        <view class="card-desc">{{serviceArea}}</view>
+        <view class="text-light text-sm mt-10">偏远地区可能收取额外交通费用</view>
+      </view>
+    </view>
+  </view>
+
+</view>

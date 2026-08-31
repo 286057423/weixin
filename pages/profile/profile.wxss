@@ -1,0 +1,115 @@
+/* pages/profile/profile.wxss */
+
+/* ==================== 用户信息头部 ==================== */
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 30rpx 40rpx;
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  border-radius: 0 0 40rpx 40rpx;
+  margin: -20rpx -30rpx 30rpx -30rpx;
+}
+
+/* ==================== 头像样式 ==================== */
+.avatar-wrapper {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6rpx solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.15);
+}
+
+.user-avatar {
+  width: 100%;
+  height: 100%;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-icon {
+  font-size: 72rpx;
+}
+
+.user-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* ==================== 登录按钮覆盖 ==================== */
+.profile-header .btn-primary {
+  background: #ffffff;
+  color: var(--color-primary);
+  font-weight: bold;
+  padding: 20rpx 80rpx;
+}
+
+.profile-header .btn-primary::after {
+  border: none;
+}
+
+.profile-header .text-light {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==================== 功能菜单列表 ==================== */
+.menu-card {
+  padding: 0 30rpx;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx 0;
+  border-bottom: 1rpx solid var(--color-divider);
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon .icon-text {
+  font-size: 32rpx;
+}
+
+.booking-icon {
+  background: rgba(26, 95, 168, 0.1);
+}
+
+.contact-menu-icon {
+  background: rgba(255, 107, 53, 0.1);
+}
+
+.about-icon {
+  background: rgba(82, 196, 26, 0.1);
+}
+
+.menu-text {
+  font-size: 30rpx;
+  color: var(--color-text);
+}
+
+.menu-arrow {
+  font-size: 36rpx;
+  color: var(--color-text-light);
+  line-height: 1;
+}

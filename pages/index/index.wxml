@@ -1,27 +1,52 @@
-<!--index.wxml-->
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    <view class="userinfo">
-      <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
-        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-        </button>
-        <view class="nickname-wrapper">
-          <text class="nickname-label">昵称</text>
-          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
+<!--index.wxml - 首页-->
+<view class="page-container">
+
+  <!-- 轮播图区域 -->
+  <swiper class="banner-swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" circular="{{true}}">
+    <swiper-item wx:for="{{banners}}" wx:key="id">
+      <view class="banner-placeholder" style="background-color: {{item.bgColor}};">
+        <text class="banner-text">{{item.title}}</text>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <!-- 公司简介板块 -->
+  <view class="card mt-20">
+    <view class="card-title">关于我们</view>
+    <view class="card-desc">{{companyIntro}}</view>
+  </view>
+
+  <!-- 服务项目网格 -->
+  <view class="card">
+    <view class="card-title">服务项目</view>
+    <view class="service-grid">
+      <view class="service-item" wx:for="{{services}}" wx:key="type" bindtap="onServiceTap" data-type="{{item.type}}">
+        <view class="service-icon">
+          <text class="service-emoji">{{item.icon}}</text>
         </view>
-      </block>
-      <block wx:elif="{{!hasUserInfo}}">
-        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
-      </block>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
-    </view>
-    <view class="usermotto">
-      <text class="user-motto">{{motto}}</text>
+        <text class="service-name">{{item.name}}</text>
+      </view>
     </view>
   </view>
-</scroll-view>
+
+  <!-- 经典案例入口 -->
+  <view class="card">
+    <view class="flex-between">
+      <view>
+        <view class="card-title" style="margin-bottom:8rpx;">经典案例</view>
+        <view class="card-desc">查看我们的修复案例，了解修复效果</view>
+      </view>
+      <navigator url="/pages/cases/cases" open-type="switchTab" class="btn-outline cases-entry-btn">
+        查看案例
+      </navigator>
+    </view>
+  </view>
+
+</view>
+
+<!-- 底部固定"立即预约"按钮 -->
+<view class="bottom-fixed">
+  <navigator url="/pages/booking/booking" open-type="switchTab" class="btn-accent btn-block btn-lg">
+    立即预约
+  </navigator>
+</view>
